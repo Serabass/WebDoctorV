@@ -106,11 +106,14 @@ public class StandardHclParser
       if (string.IsNullOrEmpty(trimmed) || trimmed.StartsWith("#") || trimmed.Contains("{"))
         continue;
 
+      // Match: key = value (value can be quoted string, number, or env(...))
       var match = Regex.Match(trimmed, @"^(\w+)\s*=\s*(.+)$");
       if (match.Success)
       {
         var key = match.Groups[1].Value;
-        var value = Unquote(match.Groups[2].Value.Trim());
+        var value = match.Groups[2].Value.Trim();
+        // Unquote will also resolve env() calls
+        value = Unquote(value);
         attributes[key] = value;
       }
     }
@@ -202,7 +205,12 @@ public class StandardHclParser
     var block = new HclBlock { Name = name, Type = type };
 
     // Parse attributes
-    var attributePattern = @"(\w+)\s*=\s*(""(?:[^""\\]|\\.)*""|'[^']*'|\d+|\[.*?\])";
+    // Match: key = value where value can be:
+    // - Quoted string: "value" or 'value'
+    // - Number: 123
+    // - Array: [...]
+    // - Env function: env("VAR") or env('VAR')
+    var attributePattern = @"(\w+)\s*=\s*(""(?:[^""\\]|\\.)*""|'[^']*'|\d+|\[.*?\]|env\s*\([^)]+\))";
     var attrMatches = Regex.Matches(content, attributePattern, RegexOptions.Singleline);
 
     foreach (Match match in attrMatches)
@@ -257,6 +265,37 @@ public class StandardHclParser
       // Unescape
       value = value.Replace("\\\"", "\"").Replace("\\'", "'").Replace("\\\\", "\\");
     }
+    
+    // Resolve environment variables: env("VAR_NAME") or env('VAR_NAME')
+    value = ResolveEnvVariables(value);
+    
+    return value;
+  }
+
+  private static string ResolveEnvVariables(string value)
+  {
+    // Match env("VAR_NAME") or env('VAR_NAME')
+    var envPattern = @"env\s*\(\s*[""']([^""']+)[""']\s*\)";
+    var match = Regex.Match(value, envPattern);
+    
+    if (match.Success)
+    {
+      var envVarName = match.Groups[1].Value;
+      var envValue = Environment.GetEnvironmentVariable(envVarName);
+      
+      if (envValue != null)
+      {
+        // Replace the entire env(...) expression with the environment variable value
+        return value.Replace(match.Value, envValue);
+      }
+      else
+      {
+        // Environment variable not found - could throw or return empty, but for now return as-is
+        // This allows the config to be parsed even if env var is missing (might be set later)
+        return value;
+      }
+    }
+    
     return value;
   }
 

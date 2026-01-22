@@ -11,6 +11,13 @@ services:
     environment:
       - ASPNETCORE_URLS=http://+:8080
       - ConfigPath=/app/config.hcl
+      # Database credentials for health checks (can be overridden via secrets)
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=rootpass
+      - MYSQL_DATABASE=mysql
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgrespass
+      - POSTGRES_DB=postgres
     depends_on:
       - test-service
       - mysql

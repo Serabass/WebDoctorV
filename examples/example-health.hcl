@@ -133,9 +133,9 @@ group "databases" {
     host = "mysql"
     port = 3306
     timeout = "10s"
-    username = "root"
-    password = "rootpass"
-    database = "mysql"
+    username = env("MYSQL_USER")
+    password = env("MYSQL_PASSWORD")
+    database = env("MYSQL_DATABASE")
     query = "SELECT 1+1 AS result, NOW() AS timestamp"
     
     response {
@@ -150,9 +150,9 @@ group "databases" {
     host = "postgres"
     port = 5432
     timeout = "10s"
-    username = "postgres"
-    password = "postgrespass"
-    database = "postgres"
+    username = env("POSTGRES_USER")
+    password = env("POSTGRES_PASSWORD")
+    database = env("POSTGRES_DB")
     query = "SELECT 1+1 AS result, NOW() AS timestamp"
     
     response {
