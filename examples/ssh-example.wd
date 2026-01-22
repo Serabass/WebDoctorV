@@ -1,0 +1,16 @@
+.interval 60s
+
+my-ssh-service {
+  .name 'My HTTPS Service'
+
+  .protocol 'ssh'
+  .host 'my-ssh-service.com'
+  .port 22
+  .timeout 30m
+
+  response {
+    .exit_code 0
+  }
+
+  .command 'ls -la'
+}

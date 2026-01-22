@@ -1,0 +1,86 @@
+version: '3.8'
+
+services:
+  webdoctorv:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # Port not exposed directly - accessed via frontend proxy
+    volumes:
+      - ./examples/example-health.hcl:/app/config.hcl:ro
+    environment:
+      - ASPNETCORE_URLS=http://+:8080
+      - ConfigPath=/app/config.hcl
+    depends_on:
+      - test-service
+      - mysql
+      - postgres
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    depends_on:
+      - webdoctorv
+    restart: unless-stopped
+
+  test-service:
+    image: nginx:alpine
+    ports:
+      - "8081:80"
+    volumes:
+      - ./nginx-test.conf:/etc/nginx/conf.d/default.conf:ro
+    restart: unless-stopped
+
+  mysql:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpass
+      - MYSQL_DATABASE=testdb
+      - MYSQL_USER=testuser
+      - MYSQL_PASSWORD=testpass
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-prootpass"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  postgres:
+    image: postgres:15-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgrespass
+      - POSTGRES_DB=testdb
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  tests:
+    image: mcr.microsoft.com/dotnet/sdk:8.0
+    volumes:
+      - .:/src:ro
+      - test-output:/src/WebdoctorV/bin
+      - test-output:/src/WebdoctorV/obj
+      - test-output:/src/WebdoctorV.Tests/bin
+      - test-output:/src/WebdoctorV.Tests/obj
+    working_dir: /src
+    environment:
+      - DOTNET_SKIP_FIRST_TIME_EXPERIENCE=1
+      - DOTNET_CLI_TELEMETRY_OPTOUT=1
+    command: sh -c "dotnet restore && dotnet build && dotnet test WebdoctorV.Tests/WebdoctorV.Tests.csproj --verbosity normal"
+    profiles:
+      - test
+
+volumes:
+  test-output:

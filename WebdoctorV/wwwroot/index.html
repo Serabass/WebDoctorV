@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebdoctorV - Health Check Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.0/signalr.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏥 WebdoctorV Dashboard</h1>
+            <div class="status-indicator" id="connectionStatus">
+                <span class="status-dot" id="statusDot"></span>
+                <span id="statusText">Connecting...</span>
+            </div>
+        </header>
+
+        <div class="summary" id="summary">
+            <div class="summary-card">
+                <div class="summary-label">Total Services</div>
+                <div class="summary-value" id="totalServices">0</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-label">Alive</div>
+                <div class="summary-value alive" id="aliveServices">0</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-label">Dead</div>
+                <div class="summary-value dead" id="deadServices">0</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-label">Uptime</div>
+                <div class="summary-value" id="uptimePercent">0%</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-label">Average Time</div>
+                <div class="summary-value" id="avgDuration">0 ms</div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <input type="text" id="searchInput" placeholder="Search by name or protocol..." />
+            <select id="statusFilter">
+                <option value="all">All Statuses</option>
+                <option value="alive">Alive</option>
+                <option value="dead">Dead</option>
+                <option value="pending">Checking...</option>
+            </select>
+            <select id="protocolFilter">
+                <option value="all">All Protocols</option>
+                <option value="http">HTTP</option>
+                <option value="https">HTTPS</option>
+                <option value="mysql">MySQL</option>
+                <option value="postgresql">PostgreSQL</option>
+                <option value="tcp">TCP</option>
+                <option value="udp">UDP</option>
+                <option value="ssh">SSH</option>
+            </select>
+            <button id="viewToggle" class="view-toggle-btn">Tree View</button>
+        </div>
+
+        <div class="services-container">
+            <div id="treeView" style="display: none;">
+                <div id="treeContainer"></div>
+            </div>
+            <div id="tableView">
+                <table class="services-table">
+                    <thead>
+                        <tr>
+                            <th>Status</th>
+                            <th>Name</th>
+                            <th>Protocol</th>
+                            <th>Target</th>
+                            <th>Response Time</th>
+                            <th>Last Check</th>
+                            <th>Error</th>
+                        </tr>
+                    </thead>
+                    <tbody id="servicesTableBody">
+                        <tr>
+                            <td colspan="7" class="loading">Loading data...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+.tree-container {
+    background: white;
+}
+
+.tree-group {
+    margin: 8px 0;
+    border-left: 2px solid #e2e8f0;
+    padding-left: 20px;
+}
+
+.tree-group-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.tree-group-header:hover {
+    background: #f8fafc;
+}
+
+.tree-toggle {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: #64748b;
+    transition: transform 0.2s;
+}
+
+.tree-group-name {
+    font-weight: 600;
+    color: #475569;
+    font-size: 1em;
+}
+
+.tree-group-stats {
+    margin-left: auto;
+    display: flex;
+    gap: 12px;
+    font-size: 0.85em;
+    color: #64748b;
+}
+
+.tree-group-stats span.alive {
+    color: #10b981;
+}
+
+.tree-group-stats span.dead {
+    color: #ef4444;
+}
+
+.tree-group-children {
+    margin-left: 28px;
+    margin-top: 4px;
+}
+
+.tree-service {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto auto auto;
+    gap: 15px;
+    align-items: center;
+    padding: 12px;
+    margin: 4px 0;
+    border-radius: 6px;
+    transition: background 0.2s;
+    border-left: 3px solid transparent;
+}
+
+.tree-service:hover {
+    background: #f8fafc;
+}
+
+.tree-service.alive {
+    border-left-color: #10b981;
+}
+
+.tree-service.dead {
+    border-left-color: #ef4444;
+}
+
+.tree-service.pending {
+    border-left-color: #f59e0b;
+}
+
+.tree-service-name {
+    font-weight: 500;
+    color: #1e293b;
+}
+
+.tree-service-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.85em;
+    color: #64748b;
+}
+
+.tree-service-target {
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+}
+
+.tree-service-duration {
+    font-family: 'Courier New', monospace;
+    color: #475569;
+    text-align: right;
+}
+
+.tree-service-last-check {
+    font-size: 0.85em;
+    color: #64748b;
+    text-align: right;
+}
+
+.tree-service-error {
+    font-size: 0.85em;
+    color: #ef4444;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.empty {
+    text-align: center;
+    padding: 40px;
+    color: #64748b;
+}
+
+@media (max-width: 768px) {
+    .tree-service {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+}

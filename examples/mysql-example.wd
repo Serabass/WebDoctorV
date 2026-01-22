@@ -1,0 +1,44 @@
+.interval 60s
+
+my-mysql-service1 {
+  .name 'My MySQL Service'
+
+  .protocol 'mysql'
+  .host 'my-mysql-service.com'
+  .port 3306
+  .timeout 30m
+
+  response {
+    .rows 1
+    .columns 1
+    .data [
+      {
+        "result": 2
+      }
+    ]
+  }
+
+  .query 'SELECT 1+1 AS result'
+}
+
+my-mysql-service2 {
+  .interval 30s
+  .name 'My MySQL Service 2'
+
+  .protocol 'mysql'
+  .host 'my-mysql-service.com'
+  .port 3306
+  .timeout 30m
+
+  response {
+    .rows 1
+    .columns 1
+    .data [
+      {
+        "result": 2
+      }
+    ]
+  }
+
+  .query 'SELECT 1+1 AS result'
+}

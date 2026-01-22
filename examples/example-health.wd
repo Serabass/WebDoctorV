@@ -1,0 +1,158 @@
+.interval 30s
+
+httpbin-health {
+  .name 'HttpBin.io Health Check'
+  .protocol 'https'
+  .host 'httpbin.io'
+  .port 443
+  .timeout 10s
+  .method 'GET'
+  .path '/anything/health'
+  .expected_status 200
+  
+  api {
+    .method 'GET'
+    .path '/anything/api'
+    
+    v1 {
+      .name 'API v1'
+      .path '/v1'
+      
+      users {
+        .name 'Users Endpoint'
+        .path '/users'
+        .expected_status 200
+      }
+      
+      posts {
+        .name 'Posts Endpoint'
+        .path '/posts'
+        .expected_status 200
+      }
+    }
+    
+    v2 {
+      .name 'API v2'
+      .path '/v2'
+      
+      auth {
+        .name 'Auth Endpoint'
+        .path '/auth'
+        .expected_status 200
+      }
+    }
+  }
+  
+  monitoring {
+    .name 'Monitoring'
+    .method 'GET'
+    .path '/anything/monitoring'
+    
+    metrics {
+      .name 'Metrics Endpoint'
+      .path '/metrics'
+      .expected_status 200
+    }
+    
+    health {
+      .name 'Monitoring Health'
+      .path '/health'
+      .expected_status 200
+    }
+  }
+}
+
+test-service {
+  .name 'Test Service (Local Nginx)'
+  .protocol 'http'
+  .host 'test-service'
+  .port 80
+  .timeout 5s
+  .method 'GET'
+  .path '/health'
+  .expected_status 200
+  
+  api {
+    .method 'GET'
+    .path '/api'
+    
+    v1 {
+      .name 'API v1'
+      .path '/v1'
+      
+      users {
+        .name 'Users Endpoint'
+        .path '/users'
+        .expected_status 200
+      }
+      
+      posts {
+        .name 'Posts Endpoint'
+        .path '/posts'
+        .expected_status 200
+      }
+    }
+    
+    v2 {
+      .name 'API v2'
+      .path '/v2'
+      
+      auth {
+        .name 'Auth Endpoint'
+        .path '/auth'
+        .expected_status 200
+      }
+    }
+  }
+  
+  monitoring {
+    .method 'GET'
+    .path '/monitoring'
+    
+    metrics {
+      .name 'Metrics Endpoint'
+      .path '/metrics'
+      .expected_status 200
+    }
+    
+    health {
+      .name 'Monitoring Health'
+      .path '/health'
+      .expected_status 200
+    }
+  }
+}
+
+mysql-test {
+  .name 'MySQL Database Check'
+  .protocol 'mysql'
+  .host 'mysql'
+  .port 3306
+  .timeout 10s
+  .username 'root'
+  .password 'rootpass'
+  .database 'mysql'
+  .query 'SELECT 1+1 AS result, NOW() AS timestamp'
+  
+  response {
+    .rows 1
+    .columns 2
+  }
+}
+
+postgres-test {
+  .name 'PostgreSQL Database Check'
+  .protocol 'postgresql'
+  .host 'postgres'
+  .port 5432
+  .timeout 10s
+  .username 'postgres'
+  .password 'postgrespass'
+  .database 'postgres'
+  .query 'SELECT 1+1 AS result, NOW() AS timestamp'
+  
+  response {
+    .rows 1
+    .columns 2
+  }
+}

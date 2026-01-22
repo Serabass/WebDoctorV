@@ -1,0 +1,24 @@
+# HELP webdoctor_executable_item_count Number of items
+# TYPE webdoctor_executable_item_count gauge
+webdoctor_executable_item_count 1
+
+# HELP webdoctor_item_status Status of the item (-1 = pending, 0 = dead, 1 = alive)
+# TYPE webdoctor_item_status gauge
+webdoctor_item_status{proto="http",name="My HTTPS Service 1",path="my-https-service1.api.health"} 1
+webdoctor_item_status{proto="http",name="My HTTPS Service 2",path="my-https-service2.api.health"} 1
+webdoctor_item_status{proto="mysql",name="My MySQL Service",path="my-mysql-service1.api.health"} 1
+webdoctor_item_status{proto="mysql",name="My SSH Service",path="my-ssh-service.api.health"} 1
+
+# HELP webdoctor_item_last_duration Last duration of the item
+# TYPE webdoctor_item_last_duration gauge
+webdoctor_item_last_duration{proto="http",name="My HTTPS Service 1",path="my-https-service1.api.health"} 115.96569395065308
+webdoctor_item_last_duration{proto="http",name="My HTTPS Service 2",path="my-https-service2.api.health"} 115.96569395065308
+webdoctor_item_last_duration{proto="mysql",name="My MySQL Service",path="my-mysql-service1.api.health"} 115.96569395065308
+webdoctor_item_last_duration{proto="mysql",name="My SSH Service",path="my-ssh-service.api.health"} 115.96569395065308
+
+# HELP webdoctor_item_last_check_date Last check date of the item
+# TYPE webdoctor_item_last_check_date gauge
+webdoctor_item_last_check_date{proto="http",name="My HTTPS Service 1",path="my-https-service1.api.health"} 1768969004412
+webdoctor_item_last_check_date{proto="http",name="My HTTPS Service 2",path="my-https-service2.api.health"} 1768969004412
+webdoctor_item_last_check_date{proto="mysql",name="My MySQL Service",path="my-mysql-service1.api.health"} 1768969004412
+webdoctor_item_last_check_date{proto="mysql",name="My SSH Service",path="my-ssh-service.api.health"} 1768969004412

@@ -1,0 +1,6 @@
+examplehealth {
+  .name 'Example.com Health Check'
+  .protocol 'https'
+  .host 'example.com'
+  .port 443
+}

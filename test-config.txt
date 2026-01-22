@@ -1,0 +1,15 @@
+﻿.interval 30s
+
+example-health {
+  .name 'Example.com Health Check'
+  .protocol 'https'
+  .host 'example.com'
+  .port 443
+  .timeout 10s
+  .method 'GET'
+  .path '/api/health'
+  
+  .response {
+    .status 200
+  }
+}
