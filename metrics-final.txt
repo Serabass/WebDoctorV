@@ -1,0 +1,212 @@
+﻿# HELP http_request_duration_seconds The duration of HTTP requests processed by an ASP.NET Core application.
+# TYPE http_request_duration_seconds histogram
+# HELP http_requests_received_total Provides the count of HTTP requests that have been processed by the ASP.NET Core pipeline.
+# TYPE http_requests_received_total counter
+# HELP http_requests_in_progress The number of requests currently in progress in the ASP.NET Core pipeline. One series without controller/action label values counts all in-progress requests, with separate series existing for each controller-action pair.
+# TYPE http_requests_in_progress gauge
+# HELP webdoctor_item_status Status of the item (-1 = pending, 0 = dead, 1 = alive)
+# TYPE webdoctor_item_status gauge
+webdoctor_item_status{proto="http",name="Users Endpoint",id="api-v1-users",path="/health/v1/users"} 1
+webdoctor_item_status{proto="http",name="Auth Endpoint",id="api-v2-auth",path="/v2/auth/v2/auth"} 0
+webdoctor_item_status{proto="http",name="Metrics Endpoint",id="metrics",path="/health/metrics"} 1
+webdoctor_item_status{proto="http",name="Posts Endpoint",id="api-v1-posts",path="/health/v1/posts"} 1
+webdoctor_item_status{proto="http",name="Test Service (Local Nginx)",id="test-service",path="/health/health"} 1
+webdoctor_item_status{proto="http",name="Users Endpoint",id="api-v1-users",path="/v2/auth/v1/users"} 0
+webdoctor_item_status{proto="http",name="Posts Endpoint",id="api-v1-posts",path="/v2/auth/v1/posts"} 0
+webdoctor_item_status{proto="http",name="Auth Endpoint",id="api-v2-auth",path="/health/v2/auth"} 1
+webdoctor_item_status{proto="http",name="Monitoring Health",id="health",path="/health/health"} 1
+webdoctor_item_status{proto="mysql",name="MySQL Database Check",id="mysql-test",path="/"} 0
+webdoctor_item_status{proto="postgresql",name="PostgreSQL Database Check",id="postgres-test",path="/"} 0
+webdoctor_item_status{proto="https",name="Auth Endpoint",id="auth",path="/auth/auth"} 0
+webdoctor_item_status{proto="https",name="HttpBin.io Health Check",id="health",path="/health/anything/health"} 0
+webdoctor_item_status{proto="https",name="Monitoring Health",id="api-base",path="/health"} 0
+webdoctor_item_status{proto="https",name="Metrics Endpoint",id="metrics",path="/health/metrics"} 0
+webdoctor_item_status{proto="https",name="Posts Endpoint",id="posts",path="/posts/posts"} 0
+webdoctor_item_status{proto="https",name="Auth Endpoint",id="auth",path="/health/auth"} 0
+webdoctor_item_status{proto="https",name="Users Endpoint",id="users",path="/posts/users"} 0
+webdoctor_item_status{proto="https",name="Posts Endpoint",id="posts",path="/health/posts"} 0
+webdoctor_item_status{proto="https",name="Monitoring Health",id="health",path="/health/health"} 0
+webdoctor_item_status{proto="https",name="Posts Endpoint",id="posts",path="/auth/posts"} 0
+webdoctor_item_status{proto="https",name="Users Endpoint",id="users",path="/auth/users"} 0
+webdoctor_item_status{proto="https",name="Auth Endpoint",id="api-base",path="/auth"} 0
+webdoctor_item_status{proto="https",name="Users Endpoint",id="users",path="/health/users"} 0
+# HELP webdoctor_item_last_duration Last duration of the item
+# TYPE webdoctor_item_last_duration gauge
+webdoctor_item_last_duration{proto="http",name="Metrics Endpoint",id="metrics",path="/health/metrics"} 0.3871
+webdoctor_item_last_duration{proto="http",name="Users Endpoint",id="api-v1-users",path="/health/v1/users"} 0.2741
+webdoctor_item_last_duration{proto="http",name="Auth Endpoint",id="api-v2-auth",path="/v2/auth/v2/auth"} 0.186
+webdoctor_item_last_duration{proto="http",name="Posts Endpoint",id="api-v1-posts",path="/health/v1/posts"} 0.1993
+webdoctor_item_last_duration{proto="http",name="Test Service (Local Nginx)",id="test-service",path="/health/health"} 0.4995
+webdoctor_item_last_duration{proto="http",name="Users Endpoint",id="api-v1-users",path="/v2/auth/v1/users"} 0.3186
+webdoctor_item_last_duration{proto="http",name="Posts Endpoint",id="api-v1-posts",path="/v2/auth/v1/posts"} 0.2366
+webdoctor_item_last_duration{proto="http",name="Auth Endpoint",id="api-v2-auth",path="/health/v2/auth"} 0.3216
+webdoctor_item_last_duration{proto="http",name="Monitoring Health",id="health",path="/health/health"} 0.2979
+webdoctor_item_last_duration{proto="mysql",name="MySQL Database Check",id="mysql-test",path="/"} 4.5695
+webdoctor_item_last_duration{proto="postgresql",name="PostgreSQL Database Check",id="postgres-test",path="/"} 2.9002
+webdoctor_item_last_duration{proto="https",name="Auth Endpoint",id="auth",path="/auth/auth"} 597.1743
+webdoctor_item_last_duration{proto="https",name="HttpBin.io Health Check",id="health",path="/health/anything/health"} 584.1153
+webdoctor_item_last_duration{proto="https",name="Monitoring Health",id="api-base",path="/health"} 719.1005
+webdoctor_item_last_duration{proto="https",name="Metrics Endpoint",id="metrics",path="/health/metrics"} 609.8352
+webdoctor_item_last_duration{proto="https",name="Posts Endpoint",id="posts",path="/posts/posts"} 618.847
+webdoctor_item_last_duration{proto="https",name="Auth Endpoint",id="auth",path="/health/auth"} 605.8003
+webdoctor_item_last_duration{proto="https",name="Users Endpoint",id="users",path="/posts/users"} 613.4426
+webdoctor_item_last_duration{proto="https",name="Posts Endpoint",id="posts",path="/health/posts"} 599.8144
+webdoctor_item_last_duration{proto="https",name="Monitoring Health",id="health",path="/health/health"} 625.7619
+webdoctor_item_last_duration{proto="https",name="Posts Endpoint",id="posts",path="/auth/posts"} 591.9335
+webdoctor_item_last_duration{proto="https",name="Users Endpoint",id="users",path="/auth/users"} 606.2597
+webdoctor_item_last_duration{proto="https",name="Auth Endpoint",id="api-base",path="/auth"} 600.454
+webdoctor_item_last_duration{proto="https",name="Users Endpoint",id="users",path="/health/users"} 625.25
+# HELP webdoctor_item_last_check_date Last check date of the item
+# TYPE webdoctor_item_last_check_date gauge
+webdoctor_item_last_check_date{proto="http",name="Posts Endpoint",id="api-v1-posts",path="/health/v1/posts"} 1769066692120
+webdoctor_item_last_check_date{proto="http",name="Metrics Endpoint",id="metrics",path="/health/metrics"} 1769066692120
+webdoctor_item_last_check_date{proto="http",name="Test Service (Local Nginx)",id="test-service",path="/health/health"} 1769066692119
+webdoctor_item_last_check_date{proto="http",name="Users Endpoint",id="api-v1-users",path="/health/v1/users"} 1769066692120
+webdoctor_item_last_check_date{proto="http",name="Auth Endpoint",id="api-v2-auth",path="/v2/auth/v2/auth"} 1769066692120
+webdoctor_item_last_check_date{proto="http",name="Users Endpoint",id="api-v1-users",path="/v2/auth/v1/users"} 1769066692120
+webdoctor_item_last_check_date{proto="http",name="Posts Endpoint",id="api-v1-posts",path="/v2/auth/v1/posts"} 1769066692120
+webdoctor_item_last_check_date{proto="http",name="Auth Endpoint",id="api-v2-auth",path="/health/v2/auth"} 1769066692120
+webdoctor_item_last_check_date{proto="http",name="Monitoring Health",id="health",path="/health/health"} 1769066692120
+webdoctor_item_last_check_date{proto="mysql",name="MySQL Database Check",id="mysql-test",path="/"} 1769066692125
+webdoctor_item_last_check_date{proto="postgresql",name="PostgreSQL Database Check",id="postgres-test",path="/"} 1769066692123
+webdoctor_item_last_check_date{proto="https",name="Auth Endpoint",id="auth",path="/auth/auth"} 1769066692716
+webdoctor_item_last_check_date{proto="https",name="HttpBin.io Health Check",id="health",path="/health/anything/health"} 1769066692702
+webdoctor_item_last_check_date{proto="https",name="Monitoring Health",id="api-base",path="/health"} 1769066692838
+webdoctor_item_last_check_date{proto="https",name="Metrics Endpoint",id="metrics",path="/health/metrics"} 1769066692729
+webdoctor_item_last_check_date{proto="https",name="Posts Endpoint",id="posts",path="/posts/posts"} 1769066692737
+webdoctor_item_last_check_date{proto="https",name="Auth Endpoint",id="auth",path="/health/auth"} 1769066692725
+webdoctor_item_last_check_date{proto="https",name="Users Endpoint",id="users",path="/posts/users"} 1769066692732
+webdoctor_item_last_check_date{proto="https",name="Posts Endpoint",id="posts",path="/health/posts"} 1769066692718
+webdoctor_item_last_check_date{proto="https",name="Monitoring Health",id="health",path="/health/health"} 1769066692745
+webdoctor_item_last_check_date{proto="https",name="Posts Endpoint",id="posts",path="/auth/posts"} 1769066692710
+webdoctor_item_last_check_date{proto="https",name="Users Endpoint",id="users",path="/auth/users"} 1769066692725
+webdoctor_item_last_check_date{proto="https",name="Auth Endpoint",id="api-base",path="/auth"} 1769066692719
+webdoctor_item_last_check_date{proto="https",name="Users Endpoint",id="users",path="/health/users"} 1769066692744
+# HELP webdoctor_executable_item_count Number of items
+# TYPE webdoctor_executable_item_count gauge
+webdoctor_executable_item_count 12
+# HELP webdoctor_checks_total Total number of checks performed
+# TYPE webdoctor_checks_total counter
+webdoctor_checks_total{proto="http",name="Monitoring Health",id="health",path="/health/health",status="alive"} 10
+webdoctor_checks_total{proto="http",name="Auth Endpoint",id="api-v2-auth",path="/health/v2/auth",status="alive"} 5
+webdoctor_checks_total{proto="http",name="Posts Endpoint",id="api-v1-posts",path="/health/v1/posts",status="alive"} 5
+webdoctor_checks_total{proto="http",name="Posts Endpoint",id="api-v1-posts",path="/v2/auth/v1/posts",status="dead"} 5
+webdoctor_checks_total{proto="http",name="Metrics Endpoint",id="metrics",path="/health/metrics",status="alive"} 10
+webdoctor_checks_total{proto="http",name="Test Service (Local Nginx)",id="test-service",path="/health/health",status="alive"} 5
+webdoctor_checks_total{proto="http",name="Users Endpoint",id="api-v1-users",path="/health/v1/users",status="alive"} 5
+webdoctor_checks_total{proto="http",name="Users Endpoint",id="api-v1-users",path="/v2/auth/v1/users",status="dead"} 5
+webdoctor_checks_total{proto="http",name="Auth Endpoint",id="api-v2-auth",path="/v2/auth/v2/auth",status="dead"} 5
+webdoctor_checks_total{proto="mysql",name="MySQL Database Check",id="mysql-test",path="/",status="dead"} 10
+webdoctor_checks_total{proto="postgresql",name="PostgreSQL Database Check",id="postgres-test",path="/",status="dead"} 10
+webdoctor_checks_total{proto="https",name="Auth Endpoint",id="auth",path="/auth/auth",status="dead"} 15
+webdoctor_checks_total{proto="https",name="HttpBin.io Health Check",id="health",path="/health/anything/health",status="dead"} 5
+webdoctor_checks_total{proto="https",name="Monitoring Health",id="api-base",path="/health",status="dead"} 5
+webdoctor_checks_total{proto="https",name="Metrics Endpoint",id="metrics",path="/health/metrics",status="dead"} 10
+webdoctor_checks_total{proto="https",name="Posts Endpoint",id="posts",path="/posts/posts",status="dead"} 10
+webdoctor_checks_total{proto="https",name="Auth Endpoint",id="auth",path="/health/auth",status="dead"} 5
+webdoctor_checks_total{proto="https",name="Users Endpoint",id="users",path="/posts/users",status="dead"} 10
+webdoctor_checks_total{proto="https",name="Posts Endpoint",id="posts",path="/health/posts",status="dead"} 5
+webdoctor_checks_total{proto="https",name="Monitoring Health",id="health",path="/health/health",status="dead"} 10
+webdoctor_checks_total{proto="https",name="Posts Endpoint",id="posts",path="/auth/posts",status="dead"} 5
+webdoctor_checks_total{proto="https",name="Users Endpoint",id="users",path="/auth/users",status="dead"} 5
+webdoctor_checks_total{proto="https",name="Auth Endpoint",id="api-base",path="/auth",status="dead"} 5
+webdoctor_checks_total{proto="https",name="Users Endpoint",id="users",path="/health/users",status="dead"} 5
+# HELP webdoctor_service_uptime_percent Uptime percentage for service
+# TYPE webdoctor_service_uptime_percent gauge
+webdoctor_service_uptime_percent{proto="http",name="Monitoring Health",id="health",path="/health/health"} 42.857142857142854
+webdoctor_service_uptime_percent{proto="http",name="Metrics Endpoint",id="metrics",path="/health/metrics"} 55.55555555555556
+webdoctor_service_uptime_percent{proto="http",name="Posts Endpoint",id="api-v1-posts",path="/health/v1/posts"} 44.44444444444444
+webdoctor_service_uptime_percent{proto="http",name="Auth Endpoint",id="api-v2-auth",path="/health/v2/auth"} 50
+webdoctor_service_uptime_percent{proto="http",name="Users Endpoint",id="api-v1-users",path="/health/v1/users"} 55.55555555555556
+webdoctor_service_uptime_percent{proto="http",name="Users Endpoint",id="api-v1-users",path="/v2/auth/v1/users"} 50
+webdoctor_service_uptime_percent{proto="http",name="Posts Endpoint",id="api-v1-posts",path="/v2/auth/v1/posts"} 37.5
+webdoctor_service_uptime_percent{proto="http",name="Test Service (Local Nginx)",id="test-service",path="/health/health"} 100
+webdoctor_service_uptime_percent{proto="http",name="Auth Endpoint",id="api-v2-auth",path="/v2/auth/v2/auth"} 44.44444444444444
+webdoctor_service_uptime_percent{proto="mysql",name="MySQL Database Check",id="mysql-test",path="/"} 0
+webdoctor_service_uptime_percent{proto="postgresql",name="PostgreSQL Database Check",id="postgres-test",path="/"} 0
+webdoctor_service_uptime_percent{proto="https",name="Auth Endpoint",id="auth",path="/auth/auth"} 0
+webdoctor_service_uptime_percent{proto="https",name="HttpBin.io Health Check",id="health",path="/health/anything/health"} 40.909090909090914
+webdoctor_service_uptime_percent{proto="https",name="Monitoring Health",id="api-base",path="/health"} 0
+webdoctor_service_uptime_percent{proto="https",name="Metrics Endpoint",id="metrics",path="/health/metrics"} 50
+webdoctor_service_uptime_percent{proto="https",name="Posts Endpoint",id="posts",path="/posts/posts"} 0
+webdoctor_service_uptime_percent{proto="https",name="Auth Endpoint",id="auth",path="/health/auth"} 0
+webdoctor_service_uptime_percent{proto="https",name="Users Endpoint",id="users",path="/posts/users"} 0
+webdoctor_service_uptime_percent{proto="https",name="Posts Endpoint",id="posts",path="/health/posts"} 0
+webdoctor_service_uptime_percent{proto="https",name="Monitoring Health",id="health",path="/health/health"} 37.5
+webdoctor_service_uptime_percent{proto="https",name="Posts Endpoint",id="posts",path="/auth/posts"} 0
+webdoctor_service_uptime_percent{proto="https",name="Users Endpoint",id="users",path="/auth/users"} 0
+webdoctor_service_uptime_percent{proto="https",name="Auth Endpoint",id="api-base",path="/auth"} 0
+webdoctor_service_uptime_percent{proto="https",name="Users Endpoint",id="users",path="/health/users"} 0
+# HELP dotnet_collection_count_total GC collection count
+# TYPE dotnet_collection_count_total counter
+dotnet_collection_count_total{generation="0"} 0
+dotnet_collection_count_total{generation="1"} 0
+dotnet_collection_count_total{generation="2"} 0
+# HELP process_start_time_seconds Start time of the process since unix epoch in seconds.
+# TYPE process_start_time_seconds gauge
+process_start_time_seconds 1769066570.649151
+# HELP process_cpu_seconds_total Total user and system CPU time spent in seconds.
+# TYPE process_cpu_seconds_total counter
+process_cpu_seconds_total 3.02
+# HELP process_virtual_memory_bytes Virtual memory size in bytes.
+# TYPE process_virtual_memory_bytes gauge
+process_virtual_memory_bytes 283329073152
+# HELP process_working_set_bytes Process working set
+# TYPE process_working_set_bytes gauge
+process_working_set_bytes 143818752
+# HELP process_private_memory_bytes Process private memory size
+# TYPE process_private_memory_bytes gauge
+process_private_memory_bytes 273281024
+# HELP process_open_handles Number of open handles
+# TYPE process_open_handles gauge
+process_open_handles 281
+# HELP process_num_threads Total number of threads
+# TYPE process_num_threads gauge
+process_num_threads 42
+# HELP dotnet_total_memory_bytes Total known allocated memory
+# TYPE dotnet_total_memory_bytes gauge
+dotnet_total_memory_bytes 12224752
+# HELP prometheus_net_metric_families Number of metric families currently registered.
+# TYPE prometheus_net_metric_families gauge
+prometheus_net_metric_families{metric_type="counter"} 5
+prometheus_net_metric_families{metric_type="gauge"} 23
+prometheus_net_metric_families{metric_type="summary"} 0
+prometheus_net_metric_families{metric_type="histogram"} 1
+# HELP prometheus_net_metric_instances Number of metric instances currently registered across all metric families.
+# TYPE prometheus_net_metric_instances gauge
+prometheus_net_metric_instances{metric_type="counter"} 28
+prometheus_net_metric_instances{metric_type="gauge"} 124
+prometheus_net_metric_instances{metric_type="summary"} 0
+prometheus_net_metric_instances{metric_type="histogram"} 0
+# HELP prometheus_net_metric_timeseries Number of metric timeseries currently generated from all metric instances.
+# TYPE prometheus_net_metric_timeseries gauge
+prometheus_net_metric_timeseries{metric_type="counter"} 28
+prometheus_net_metric_timeseries{metric_type="gauge"} 124
+prometheus_net_metric_timeseries{metric_type="summary"} 0
+prometheus_net_metric_timeseries{metric_type="histogram"} 0
+# HELP prometheus_net_exemplars_recorded_total Number of exemplars that were accepted into in-memory storage in the prometheus-net SDK.
+# TYPE prometheus_net_exemplars_recorded_total counter
+prometheus_net_exemplars_recorded_total 0
+# HELP prometheus_net_eventcounteradapter_sources_connected_total Number of event sources that are currently connected to the adapter.
+# TYPE prometheus_net_eventcounteradapter_sources_connected_total gauge
+prometheus_net_eventcounteradapter_sources_connected_total 7
+# HELP prometheus_net_meteradapter_instruments_connected Number of instruments that are currently connected to the adapter.
+# TYPE prometheus_net_meteradapter_instruments_connected gauge
+prometheus_net_meteradapter_instruments_connected 39
+# HELP mysqlconnector_db_client_connections_idle_max ({connection}) The maximum number of idle open connections allowed; this corresponds to MaximumPoolSize in the connection string. (ObservableUpDownCounter`1)
+# TYPE mysqlconnector_db_client_connections_idle_max gauge
+mysqlconnector_db_client_connections_idle_max{pool_name="Server=mysql;Port=3306;User ID=root;Database=mysql;Connection Timeout=10"} 100
+# HELP mysqlconnector_db_client_connections_idle_min ({connection}) The minimum number of idle open connections allowed; this corresponds to MinimumPoolSize in the connection string. (ObservableUpDownCounter`1)
+# TYPE mysqlconnector_db_client_connections_idle_min gauge
+mysqlconnector_db_client_connections_idle_min{pool_name="Server=mysql;Port=3306;User ID=root;Database=mysql;Connection Timeout=10"} 0
+# HELP mysqlconnector_db_client_connections_max ({connection}) The maximum number of open connections allowed; this corresponds to MaximumPoolSize in the connection string. (ObservableUpDownCounter`1)
+# TYPE mysqlconnector_db_client_connections_max gauge
+mysqlconnector_db_client_connections_max{pool_name="Server=mysql;Port=3306;User ID=root;Database=mysql;Connection Timeout=10"} 100
+# HELP npgsql_db_client_connection_count ({connection}) The number of connections that are currently in state described by the state attribute. (ObservableUpDownCounter`1)
+# TYPE npgsql_db_client_connection_count gauge
+npgsql_db_client_connection_count{db_client_connection_pool_name="Host=postgres;Port=5432;Database=postgres;Username=postgres;Timeout=10",db_client_connection_state="idle"} 0
+npgsql_db_client_connection_count{db_client_connection_pool_name="Host=postgres;Port=5432;Database=postgres;Username=postgres;Timeout=10",db_client_connection_state="used"} 0
+# HELP npgsql_db_client_connection_max ({connection}) The maximum number of open connections allowed. (ObservableUpDownCounter`1)
+# TYPE npgsql_db_client_connection_max gauge
+npgsql_db_client_connection_max{db_client_connection_pool_name="Host=postgres;Port=5432;Database=postgres;Username=postgres;Timeout=10"} 100
+
